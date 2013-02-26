@@ -9,5 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface MMViewController : UIViewController
+@property (weak, nonatomic) IBOutlet UITextField *searchField;
+- (IBAction)searchButton:(id)sender;
 
 @end

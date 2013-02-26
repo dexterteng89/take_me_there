@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1D18DA9116DC38CB000D3F8F /* QueryListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D18DA9016DC38CB000D3F8F /* QueryListTableViewController.m */; };
 		D8F1407A16DC2EE3004F29A8 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8F1407916DC2EE3004F29A8 /* UIKit.framework */; };
 		D8F1407C16DC2EE3004F29A8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8F1407B16DC2EE3004F29A8 /* Foundation.framework */; };
 		D8F1407E16DC2EE3004F29A8 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8F1407D16DC2EE3004F29A8 /* CoreGraphics.framework */; };
@@ -22,6 +23,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1D18DA8F16DC38CB000D3F8F /* QueryListTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QueryListTableViewController.h; sourceTree = "<group>"; };
+		1D18DA9016DC38CB000D3F8F /* QueryListTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QueryListTableViewController.m; sourceTree = "<group>"; };
 		D8F1407616DC2EE3004F29A8 /* TakeMeThere.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TakeMeThere.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D8F1407916DC2EE3004F29A8 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		D8F1407B16DC2EE3004F29A8 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -91,6 +94,8 @@
 				D8F1409116DC2EE3004F29A8 /* MainStoryboard.storyboard */,
 				D8F1409416DC2EE3004F29A8 /* MMViewController.h */,
 				D8F1409516DC2EE3004F29A8 /* MMViewController.m */,
+				1D18DA8F16DC38CB000D3F8F /* QueryListTableViewController.h */,
+				1D18DA9016DC38CB000D3F8F /* QueryListTableViewController.m */,
 				D8F1409C16DC2EF3004F29A8 /* Photo.h */,
 				D8F1409D16DC2EF3004F29A8 /* Photo.m */,
 				D8F1408016DC2EE3004F29A8 /* Supporting Files */,
@@ -183,6 +188,7 @@
 				D8F1408A16DC2EE3004F29A8 /* MMAppDelegate.m in Sources */,
 				D8F1409616DC2EE3004F29A8 /* MMViewController.m in Sources */,
 				D8F1409E16DC2EF3004F29A8 /* Photo.m in Sources */,
+				1D18DA9116DC38CB000D3F8F /* QueryListTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

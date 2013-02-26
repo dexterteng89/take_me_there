@@ -12,6 +12,6 @@
 @property (strong, nonatomic) NSDictionary* myPhoto;
 
 - (NSString *)getPhotoURLBySizeSuffix:(char)sizeSuffix;
-- (UIImage *)getPhotoImage;
+- (UIImage *)getPhotoThumbnail;
 
 @end

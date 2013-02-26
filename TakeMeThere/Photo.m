@@ -13,7 +13,7 @@
 
 - (NSString *)getPhotoURLBySizeSuffix:(char)sizeSuffix
 {
-    NSString* myURL = [NSString stringWithFormat:@"http://farm%@.staticflickr.com/%@/%@_%@_%@.jpg", [self.myPhoto valueForKey:@"farm"], [self.myPhoto valueForKey:@"server"], [self.myPhoto valueForKey:@"id"], [self.myPhoto valueForKey:@"secret"], sizeSuffix];
+    NSString* myURL = [NSString stringWithFormat:@"http://farm%@.staticflickr.com/%@/%@_%@_%c.jpg", [self.myPhoto valueForKey:@"farm"], [self.myPhoto valueForKey:@"server"], [self.myPhoto valueForKey:@"id"], [self.myPhoto valueForKey:@"secret"], sizeSuffix];
     return myURL;
 }
 
