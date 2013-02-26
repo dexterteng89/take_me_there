@@ -14,4 +14,5 @@
 - (NSString *)getPhotoURLBySizeSuffix:(char)sizeSuffix;
 - (UIImage *)getPhotoThumbnail;
 
+
 @end

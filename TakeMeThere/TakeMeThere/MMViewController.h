@@ -10,6 +10,7 @@
 
 @interface MMViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UITextField *searchField;
+@property (strong, nonatomic) NSMutableArray* allPhotoJSONfileArray;
 - (IBAction)searchButton:(id)sender;
 
 @end

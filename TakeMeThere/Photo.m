@@ -20,7 +20,7 @@
 
 - (UIImage *)getPhotoThumbnail
 {
-    UIImage *myImage = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:[self getPhotoURLBySizeSuffix:'t']]]];
+    UIImage *myImage = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:[self getPhotoURLBySizeSuffix:'m']]]];
     return myImage;
 }
 

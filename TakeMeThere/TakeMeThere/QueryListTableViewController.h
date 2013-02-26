@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Photo.h"
 
 @interface QueryListTableViewController : UITableViewController
 @property (strong, nonatomic) IBOutlet UITableView *queryListTableView;
-@property (strong, nonatomic) NSArray* allPhotoJSONfileArray;
+@property (strong, nonatomic) NSMutableArray* allPhotoJSONfileArray;
 @end
