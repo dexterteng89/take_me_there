@@ -15,4 +15,5 @@
 - (UIImage *)getPhotoThumbnail;
 
 
+
 @end
