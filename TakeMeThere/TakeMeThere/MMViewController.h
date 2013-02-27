@@ -7,10 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Photo.h"
+#import "QueryListTableViewController.h"
+#import "MapViewController.h"
 
-@interface MMViewController : UIViewController
+@interface MMViewController : UIViewController <getDataFromFlickrIntoArray>
+
 @property (weak, nonatomic) IBOutlet UITextField *searchField;
 @property (strong, nonatomic) NSMutableArray* allPhotoJSONfileArray;
+
 - (IBAction)searchButton:(id)sender;
 
 @end

@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		1D18DA9116DC38CB000D3F8F /* QueryListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D18DA9016DC38CB000D3F8F /* QueryListTableViewController.m */; };
+		D8835AFA16DDBA16009897C3 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8835AF916DDBA16009897C3 /* MapViewController.m */; };
+		D8835B0616DEBAD7009897C3 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8835B0516DEBAD7009897C3 /* MapKit.framework */; };
+		D8835B0816DEBADD009897C3 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8835B0716DEBADD009897C3 /* CoreLocation.framework */; };
+		D8835B0B16DEC08D009897C3 /* Annotation.m in Sources */ = {isa = PBXBuildFile; fileRef = D8835B0A16DEC08D009897C3 /* Annotation.m */; };
 		D8F1407A16DC2EE3004F29A8 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8F1407916DC2EE3004F29A8 /* UIKit.framework */; };
 		D8F1407C16DC2EE3004F29A8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8F1407B16DC2EE3004F29A8 /* Foundation.framework */; };
 		D8F1407E16DC2EE3004F29A8 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8F1407D16DC2EE3004F29A8 /* CoreGraphics.framework */; };
@@ -25,6 +29,12 @@
 /* Begin PBXFileReference section */
 		1D18DA8F16DC38CB000D3F8F /* QueryListTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QueryListTableViewController.h; sourceTree = "<group>"; };
 		1D18DA9016DC38CB000D3F8F /* QueryListTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QueryListTableViewController.m; sourceTree = "<group>"; };
+		D8835AF816DDBA16009897C3 /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MapViewController.h; path = ../MapViewController.h; sourceTree = "<group>"; };
+		D8835AF916DDBA16009897C3 /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MapViewController.m; path = ../MapViewController.m; sourceTree = "<group>"; };
+		D8835B0516DEBAD7009897C3 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		D8835B0716DEBADD009897C3 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		D8835B0916DEC08D009897C3 /* Annotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Annotation.h; sourceTree = "<group>"; };
+		D8835B0A16DEC08D009897C3 /* Annotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Annotation.m; sourceTree = "<group>"; };
 		D8F1407616DC2EE3004F29A8 /* TakeMeThere.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TakeMeThere.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D8F1407916DC2EE3004F29A8 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		D8F1407B16DC2EE3004F29A8 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -50,6 +60,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D8835B0816DEBADD009897C3 /* CoreLocation.framework in Frameworks */,
+				D8835B0616DEBAD7009897C3 /* MapKit.framework in Frameworks */,
 				D8F1407A16DC2EE3004F29A8 /* UIKit.framework in Frameworks */,
 				D8F1407C16DC2EE3004F29A8 /* Foundation.framework in Frameworks */,
 				D8F1407E16DC2EE3004F29A8 /* CoreGraphics.framework in Frameworks */,
@@ -79,6 +91,8 @@
 		D8F1407816DC2EE3004F29A8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D8835B0716DEBADD009897C3 /* CoreLocation.framework */,
+				D8835B0516DEBAD7009897C3 /* MapKit.framework */,
 				D8F1407916DC2EE3004F29A8 /* UIKit.framework */,
 				D8F1407B16DC2EE3004F29A8 /* Foundation.framework */,
 				D8F1407D16DC2EE3004F29A8 /* CoreGraphics.framework */,
@@ -98,6 +112,10 @@
 				1D18DA9016DC38CB000D3F8F /* QueryListTableViewController.m */,
 				D8F1409C16DC2EF3004F29A8 /* Photo.h */,
 				D8F1409D16DC2EF3004F29A8 /* Photo.m */,
+				D8835AF816DDBA16009897C3 /* MapViewController.h */,
+				D8835AF916DDBA16009897C3 /* MapViewController.m */,
+				D8835B0916DEC08D009897C3 /* Annotation.h */,
+				D8835B0A16DEC08D009897C3 /* Annotation.m */,
 				D8F1408016DC2EE3004F29A8 /* Supporting Files */,
 			);
 			path = TakeMeThere;
@@ -189,6 +207,8 @@
 				D8F1409616DC2EE3004F29A8 /* MMViewController.m in Sources */,
 				D8F1409E16DC2EF3004F29A8 /* Photo.m in Sources */,
 				1D18DA9116DC38CB000D3F8F /* QueryListTableViewController.m in Sources */,
+				D8835AFA16DDBA16009897C3 /* MapViewController.m in Sources */,
+				D8835B0B16DEC08D009897C3 /* Annotation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

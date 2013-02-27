@@ -24,6 +24,20 @@
     return myImage;
 }
 
+- (NSString *)getPhotoLatitude
+{
+    return [myPhoto valueForKey:@"latitude"];
+}
+
+- (NSString *)getPhotoLongitude
+{
+    return [myPhoto valueForKey:@"longitude"];
+}
+
+- (NSString *)getTitle
+{
+    return [myPhoto valueForKey:@"title"];
+}
 
 
 @end

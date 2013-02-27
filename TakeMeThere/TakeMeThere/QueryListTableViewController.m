@@ -7,9 +7,15 @@
 //
 
 #import "QueryListTableViewController.h"
+#import "MapViewController.h"
 
 @interface QueryListTableViewController ()
-
+{
+    MapViewController *mvc;
+    NSString *latitudeString;
+    NSString *longitudeString;
+    NSString *picTitle;
+}
 @end
 
 @implementation QueryListTableViewController
@@ -22,6 +28,16 @@
         // Custom initialization
     }
     return self;
+}
+
+- (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    
+    mvc = [segue destinationViewController];
+    
+    [mvc setLatitude:latitudeString];
+    [mvc setLongitude:longitudeString];
+    [mvc setPicTitle:picTitle];
 }
 
 - (void)viewDidLoad
@@ -69,6 +85,15 @@
     
     
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    mvc = [[MapViewController alloc] init];
+    latitudeString = [[allPhotoJSONfileArray objectAtIndex:[indexPath row]] getPhotoLatitude];
+    longitudeString = [[allPhotoJSONfileArray objectAtIndex:[indexPath row]] getPhotoLongitude];
+    picTitle = [[allPhotoJSONfileArray objectAtIndex:[indexPath row]] getTitle];
+    [self performSegueWithIdentifier:@"tableToMap" sender:self];
 }
 
 
