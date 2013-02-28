@@ -11,9 +11,18 @@
 
 
 @interface MMViewController ()
+//added an instance variable of cllocation
+
 {
     NSString* flickrAPIString;
+    CLLocationManager *mrLocationManager;
+   
+    //add some variables
+    NSString *longString;
+    NSString *latString;
+    CLLocation *currentLocation;
 }
+
 @end
 
 @implementation MMViewController
@@ -30,10 +39,57 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
+    [self startLocationUpdates];
 
 	// Do any additional setup after loading the view, typically from a nib.
 }
+
+//added the startLocationUpdates method
+- (void) startLocationUpdates
+{
+    
+    //if we dont have an instantiated clloactionmanager object make one
+    if (mrLocationManager == nil)
+    {
+        mrLocationManager = [[CLLocationManager alloc] init];
+    }
+    mrLocationManager.delegate = self;
+    
+    //get location that is decently close
+    mrLocationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters;
+    
+    //update location
+    [mrLocationManager startUpdatingLocation];
+    
+
+    
+}
+
+//if we fail to get the location popup alert saying so.
+-(void) locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error
+{
+    UIAlertView *errorAlert = [[UIAlertView alloc]
+                               initWithTitle:@"Error"
+                                     message:@"Failed to Get Your Location"
+                                    delegate:nil
+                           cancelButtonTitle:@"OK"
+                           otherButtonTitles:nil];
+    [errorAlert show];
+}
+
+//when we get the new location do this
+-(void) locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation
+{
+    currentLocation = newLocation;
+    
+    if (currentLocation != nil) {
+        longString = [NSString stringWithFormat:@"%.8f", currentLocation.coordinate.longitude];
+        latString = [NSString stringWithFormat:@"%.8f", currentLocation.coordinate.latitude];
+    }
+    
+    [mrLocationManager stopUpdatingLocation];
+}
+
 
 - (void)didReceiveMemoryWarning
 {
@@ -45,7 +101,7 @@
 {
     allPhotoJSONfileArray = [[NSMutableArray alloc] init];
     
-    flickrAPIString = [NSString stringWithFormat:@"http://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=bd02a7a94fbe1f4c40a1661af4cb7bbe&tags=%@&format=json&nojsoncallback=1&lat=41.894032&lon=-87.634742&radius=0.5&extras=geo", searchField.text];
+    flickrAPIString = [NSString stringWithFormat:@"http://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=bd02a7a94fbe1f4c40a1661af4cb7bbe&tags=%@&format=json&nojsoncallback=1&lat=%@&lon=%@&radius=0.5&extras=geo", searchField.text, latString, longString];
     
     NSMutableURLRequest* myURLRequest = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:flickrAPIString]];
     
