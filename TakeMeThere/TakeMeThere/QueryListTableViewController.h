@@ -7,9 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "Photo.h"
+#import "CurrentLocationDelegate.h"
 
 @interface QueryListTableViewController : UITableViewController
 @property (strong, nonatomic) IBOutlet UITableView *queryListTableView;
 @property (strong, nonatomic) NSMutableArray* allPhotoJSONfileArray;
+@property (retain, nonatomic) id <CurrentLocationDelegate> delegate;
+
 @end

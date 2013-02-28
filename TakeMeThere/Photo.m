@@ -9,7 +9,7 @@
 #import "Photo.h"
 
 @implementation Photo
-@synthesize myPhoto;
+@synthesize myPhoto, title, pictureLocation;
 
 - (NSString *)getPhotoURLBySizeSuffix:(char)sizeSuffix
 {
@@ -17,27 +17,36 @@
     return myURL;
 }
 
-
 - (UIImage *)getPhotoThumbnail
 {
     UIImage *myImage = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:[self getPhotoURLBySizeSuffix:'m']]]];
     return myImage;
 }
 
-- (NSString *)getPhotoLatitude
+- (id) initWithDictionary:(NSDictionary *)photoDictionary
 {
-    return [myPhoto valueForKey:@"latitude"];
+    self = [super init];
+    
+    //Gets Current Location latitude
+    NSString* latitudeString = [photoDictionary valueForKey:@"latitude"];
+    float latitudeFloat = [latitudeString floatValue];
+    CLLocationDegrees latitudeDegrees = latitudeFloat;
+    
+    //Gets Current Location longitude
+    NSString* longitudeString = [photoDictionary valueForKey:@"longitude"];
+    float longitudeFloat = [longitudeString floatValue];
+    CLLocationDegrees longitudeDegrees = longitudeFloat;
+    
+    //Assigns current location longitude and latitude to a new CLLocation called newLocation
+    CLLocation* newLocation = [[CLLocation alloc] initWithLatitude:latitudeDegrees longitude:longitudeDegrees];
+    
+    //assigns newLocation to property pictureLocation
+    pictureLocation = newLocation;
+        
+    self.myPhoto = photoDictionary;
+    
+    self.title = [photoDictionary valueForKey:@"title"];
+    return self;
 }
-
-- (NSString *)getPhotoLongitude
-{
-    return [myPhoto valueForKey:@"longitude"];
-}
-
-- (NSString *)getTitle
-{
-    return [myPhoto valueForKey:@"title"];
-}
-
 
 @end

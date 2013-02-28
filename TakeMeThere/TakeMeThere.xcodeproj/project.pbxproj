@@ -35,6 +35,7 @@
 		D8835B0716DEBADD009897C3 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		D8835B0916DEC08D009897C3 /* Annotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Annotation.h; sourceTree = "<group>"; };
 		D8835B0A16DEC08D009897C3 /* Annotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Annotation.m; sourceTree = "<group>"; };
+		D8835B0D16DFD094009897C3 /* CurrentLocationDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CurrentLocationDelegate.h; sourceTree = "<group>"; };
 		D8F1407616DC2EE3004F29A8 /* TakeMeThere.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TakeMeThere.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D8F1407916DC2EE3004F29A8 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		D8F1407B16DC2EE3004F29A8 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -106,6 +107,7 @@
 				D8F1408816DC2EE3004F29A8 /* MMAppDelegate.h */,
 				D8F1408916DC2EE3004F29A8 /* MMAppDelegate.m */,
 				D8F1409116DC2EE3004F29A8 /* MainStoryboard.storyboard */,
+				D8835B0D16DFD094009897C3 /* CurrentLocationDelegate.h */,
 				D8F1409416DC2EE3004F29A8 /* MMViewController.h */,
 				D8F1409516DC2EE3004F29A8 /* MMViewController.m */,
 				1D18DA8F16DC38CB000D3F8F /* QueryListTableViewController.h */,

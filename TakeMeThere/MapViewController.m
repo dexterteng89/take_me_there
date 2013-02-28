@@ -10,13 +10,15 @@
 
 @interface MapViewController ()
 {
-    Annotation *myAnnotation;
+    Annotation *pictureAnnotation;
+    Annotation *userAnnotation;
+
 }
 
 @end
 
 @implementation MapViewController
-@synthesize latitude, longitude, picTitle;
+@synthesize pictureLocation, picTitle, userLocation;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -39,27 +41,67 @@
     
     CLLocationCoordinate2D picCoordinate =
     {
-        .latitude = [self.latitude floatValue],
-        .longitude = [self.longitude floatValue]
+        .latitude = pictureLocation.coordinate.latitude,
+        .longitude = pictureLocation.coordinate.longitude
     };
     
     MKCoordinateSpan span =
     {
-        .latitudeDelta = .002f,
-        .longitudeDelta = .002f
+        .latitudeDelta = 0.00810686f,
+        .longitudeDelta = 0.00810686f
     };
     
-    MKCoordinateRegion myRegion = {picCoordinate, span};
+    MKCoordinateRegion myRegion = {userLocation.coordinate, span};
     
-    myAnnotation = [[Annotation alloc] init];
-    myAnnotation.title = self.picTitle;
-    myAnnotation.subtitle = @":)";
-    myAnnotation.coordinate = picCoordinate;
+    pictureAnnotation = [[Annotation alloc] init];
+    pictureAnnotation.title = self.picTitle;
+    pictureAnnotation.subtitle = @":)";
+    pictureAnnotation.coordinate = picCoordinate;
     
+    [self setsUserLocation];
     
     [myMapView setRegion:myRegion];
-    [myMapView addAnnotation:myAnnotation];
+    [myMapView addAnnotation:pictureAnnotation];
 }
+
+- (void)setsUserLocation
+{
+    userAnnotation = [[Annotation alloc] init];
+    userAnnotation.coordinate = userLocation.coordinate;
+    userAnnotation.title = @"My current Location";
+    
+    [myMapView addAnnotation:userAnnotation] ;
+}
+
+
+-(MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation
+{
+    MKPinAnnotationView *myPinView =(MKPinAnnotationView *) [mapView dequeueReusableAnnotationViewWithIdentifier:@"ATagPin"];
+    
+    if (myPinView == nil)
+    {
+        myPinView = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@"ATagPin"];
+    }
+    
+    if ([annotation.title isEqual: @"My current Location"]) {
+        myPinView.pinColor = MKPinAnnotationColorPurple;
+        myPinView.canShowCallout = YES;
+        //annotationView.image = [UIImage imageNamed:@"images.png"];
+        return myPinView;
+    } else {
+        myPinView.pinColor = MKPinAnnotationColorGreen;
+        myPinView.canShowCallout = YES;
+        //annotationView.image = [UIImage imageNamed:@"images.png"];
+        return myPinView;
+    }
+
+    
+}
+
+//-(void) showDetail
+//{
+//
+//}
 
 - (void)didReceiveMemoryWarning
 {

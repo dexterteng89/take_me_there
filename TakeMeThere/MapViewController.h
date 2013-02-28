@@ -17,8 +17,13 @@
     IBOutlet MKMapView *myMapView;
     
 }
-@property (retain, nonatomic) NSString* latitude;
-@property (retain, nonatomic) NSString* longitude;
+//photo data
+@property (retain, nonatomic) CLLocation* pictureLocation;
 @property (retain, nonatomic) NSString* picTitle;
+
+//user data
+@property (retain, nonatomic) CLLocation* userLocation;
+
+- (void)setsUserLocation;
 
 @end

@@ -7,22 +7,16 @@
 //
 
 #import <Foundation/Foundation.h>
-
-@protocol getDataFromFlickrIntoArray <NSObject>
-@required
-
--(void) takeJSONAndPutIntoArray: (NSURLResponse *)myResponse withData: (NSData *)myData andError: (NSError *)theirError;
--(void) getJSONFromFlickr;
-
-@end
+#import <CoreLocation/CoreLocation.h>
 
 @interface Photo : NSObject
 @property (strong, nonatomic) NSDictionary* myPhoto;
 
+@property (retain, nonatomic) CLLocation* pictureLocation;
+
+@property (strong, nonatomic) NSString* title;
+
 - (NSString *)getPhotoURLBySizeSuffix:(char)sizeSuffix;
 - (UIImage *)getPhotoThumbnail;
-- (NSString *)getPhotoLatitude;
-- (NSString *)getPhotoLongitude;
-- (NSString *)getTitle;
-
+- (id) initWithDictionary:(NSDictionary *)photoDictionary;
 @end

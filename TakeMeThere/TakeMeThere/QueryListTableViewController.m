@@ -8,18 +8,20 @@
 
 #import "QueryListTableViewController.h"
 #import "MapViewController.h"
+#import "Photo.h"
 
 @interface QueryListTableViewController ()
 {
-    MapViewController *mvc;
-    NSString *latitudeString;
-    NSString *longitudeString;
+    MapViewController *mapViewController;
+    
+    CLLocation *pictureLocation;
+    
     NSString *picTitle;
 }
 @end
 
 @implementation QueryListTableViewController
-@synthesize queryListTableView, allPhotoJSONfileArray;
+@synthesize queryListTableView, allPhotoJSONfileArray, delegate;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -28,16 +30,18 @@
         // Custom initialization
     }
     return self;
+    
+    
 }
+
 
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     
-    mvc = [segue destinationViewController];
-    
-    [mvc setLatitude:latitudeString];
-    [mvc setLongitude:longitudeString];
-    [mvc setPicTitle:picTitle];
+    mapViewController = [segue destinationViewController];
+    [mapViewController setPictureLocation:pictureLocation];
+    [mapViewController setUserLocation:[self.delegate getLocation]];
+    [mapViewController setPicTitle:picTitle];
 }
 
 - (void)viewDidLoad
@@ -89,10 +93,8 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    mvc = [[MapViewController alloc] init];
-    latitudeString = [[allPhotoJSONfileArray objectAtIndex:[indexPath row]] getPhotoLatitude];
-    longitudeString = [[allPhotoJSONfileArray objectAtIndex:[indexPath row]] getPhotoLongitude];
-    picTitle = [[allPhotoJSONfileArray objectAtIndex:[indexPath row]] getTitle];
+    picTitle = [[allPhotoJSONfileArray objectAtIndex:[indexPath row]] title];
+    pictureLocation = [[allPhotoJSONfileArray objectAtIndex:[indexPath row]] pictureLocation];
     [self performSegueWithIdentifier:@"tableToMap" sender:self];
 }
 

@@ -7,8 +7,8 @@
 //
 
 #import "MMViewController.h"
-
-
+#import "QueryListTableViewController.h"
+#import "MapViewController.h"
 
 @interface MMViewController ()
 //added an instance variable of cllocation
@@ -16,10 +16,6 @@
 {
     NSString* flickrAPIString;
     CLLocationManager *mrLocationManager;
-   
-    //add some variables
-    NSString *longString;
-    NSString *latString;
     CLLocation *currentLocation;
 }
 
@@ -31,23 +27,26 @@
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
 
-    QueryListTableViewController* qltvc = [segue destinationViewController];
-    
-    [qltvc setAllPhotoJSONfileArray:self.allPhotoJSONfileArray];
+    QueryListTableViewController* queryListTableVC = [segue destinationViewController];
+    queryListTableVC.delegate = self;
+    [queryListTableVC setAllPhotoJSONfileArray:self.allPhotoJSONfileArray];
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     [self startLocationUpdates];
+}
 
-	// Do any additional setup after loading the view, typically from a nib.
+// Delegate protocol for CurrentLocationDelegate
+- (CLLocation *)getLocation
+{
+    return currentLocation;
 }
 
 //added the startLocationUpdates method
 - (void) startLocationUpdates
 {
-    
     //if we dont have an instantiated clloactionmanager object make one
     if (mrLocationManager == nil)
     {
@@ -60,9 +59,6 @@
     
     //update location
     [mrLocationManager startUpdatingLocation];
-    
-
-    
 }
 
 //if we fail to get the location popup alert saying so.
@@ -78,30 +74,29 @@
 }
 
 //when we get the new location do this
--(void) locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation
+-(void) locationManager:(CLLocationManager *)manager
+    didUpdateToLocation:(CLLocation *)newLocation
+           fromLocation:(CLLocation *)oldLocation
 {
     currentLocation = newLocation;
-    
-    if (currentLocation != nil) {
-        longString = [NSString stringWithFormat:@"%.8f", currentLocation.coordinate.longitude];
-        latString = [NSString stringWithFormat:@"%.8f", currentLocation.coordinate.latitude];
-    }
-    
-    [mrLocationManager stopUpdatingLocation];
 }
 
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
+}
 
+- (IBAction)searchButton:(id)sender
+{
+    [self getJSONFromFlickr];
 }
 
 -(void) getJSONFromFlickr
 {
     allPhotoJSONfileArray = [[NSMutableArray alloc] init];
     
-    flickrAPIString = [NSString stringWithFormat:@"http://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=bd02a7a94fbe1f4c40a1661af4cb7bbe&tags=%@&format=json&nojsoncallback=1&lat=%@&lon=%@&radius=0.5&extras=geo", searchField.text, latString, longString];
+    flickrAPIString = [NSString stringWithFormat:@"http://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=bd02a7a94fbe1f4c40a1661af4cb7bbe&tags=%@&format=json&nojsoncallback=1&lat=%f&lon=%f&radius=0.5&extras=geo", searchField.text, currentLocation.coordinate.latitude, currentLocation.coordinate.longitude];
     
     NSMutableURLRequest* myURLRequest = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:flickrAPIString]];
     
@@ -119,7 +114,7 @@
 {
     if (theirError)
     {
-        NSLog(@"hello");
+        NSLog(@"%@", [theirError description]);
     } else
     {
         NSError* jsonError;
@@ -130,16 +125,11 @@
         
         for (int i=0; i < [arrayOfDictionaryPhotos count]; i++)
         {
-            Photo *randomPhoto = [[Photo alloc] init];
-            randomPhoto.myPhoto = [arrayOfDictionaryPhotos objectAtIndex:i];
+            Photo *randomPhoto = [[Photo alloc] initWithDictionary:[arrayOfDictionaryPhotos objectAtIndex:i]];
             [self.allPhotoJSONfileArray addObject:randomPhoto];
-            
         }
         [self performSegueWithIdentifier:@"queryToTable" sender:self];
     }
 }
-- (IBAction)searchButton:(id)sender
-{
-    [self getJSONFromFlickr];
-}
+
 @end
