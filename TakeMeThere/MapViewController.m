@@ -64,39 +64,39 @@
     [myMapView addAnnotation:pictureAnnotation];
 }
 
-- (void)setsUserLocation
-{
-    userAnnotation = [[Annotation alloc] init];
-    userAnnotation.coordinate = userLocation.coordinate;
-    userAnnotation.title = @"My current Location";
-    
-    [myMapView addAnnotation:userAnnotation] ;
-}
+//- (void)setsUserLocation
+//{
+//    userAnnotation = [[Annotation alloc] init];
+//    userAnnotation.coordinate = userLocation.coordinate;
+//    userAnnotation.title = @"My current Location";
+//    
+//    [myMapView addAnnotation:userAnnotation] ;
+//}
 
 
--(MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation
-{
-    MKPinAnnotationView *myPinView =(MKPinAnnotationView *) [mapView dequeueReusableAnnotationViewWithIdentifier:@"ATagPin"];
-    
-    if (myPinView == nil)
-    {
-        myPinView = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@"ATagPin"];
-    }
-    
-    if ([annotation.title isEqual: @"My current Location"]) {
-        myPinView.pinColor = MKPinAnnotationColorPurple;
-        myPinView.canShowCallout = YES;
-        //annotationView.image = [UIImage imageNamed:@"images.png"];
-        return myPinView;
-    } else {
-        myPinView.pinColor = MKPinAnnotationColorGreen;
-        myPinView.canShowCallout = YES;
-        //annotationView.image = [UIImage imageNamed:@"images.png"];
-        return myPinView;
-    }
-
-    
-}
+//-(MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation
+//{
+//    MKPinAnnotationView *myPinView =(MKPinAnnotationView *) [mapView dequeueReusableAnnotationViewWithIdentifier:@"ATagPin"];
+//    
+//    if (myPinView == nil)
+//    {
+//        myPinView = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@"ATagPin"];
+//    }
+//    
+//    if ([annotation.title isEqual: @"My current Location"]) {
+//        myPinView.pinColor = MKPinAnnotationColorPurple;
+//        myPinView.canShowCallout = YES;
+//        //annotationView.image = [UIImage imageNamed:@"images.png"];
+//        return myPinView;
+//    } else {
+//        myPinView.pinColor = MKPinAnnotationColorGreen;
+//        myPinView.canShowCallout = YES;
+//        //annotationView.image = [UIImage imageNamed:@"images.png"];
+//        return myPinView;
+//    }
+//
+//    
+//}
 
 //-(void) showDetail
 //{
