@@ -9,6 +9,7 @@
 #import "MMViewController.h"
 #import "QueryListTableViewController.h"
 #import "MapViewController.h"
+#import "MMYelpKitFramework.h"
 
 @interface MMViewController ()
 //added an instance variable of cllocation
@@ -17,6 +18,7 @@
     NSString* flickrAPIString;
     CLLocationManager *mrLocationManager;
     CLLocation *currentLocation;
+    NSDictionary* myYelpVenues;
 }
 
 @end
@@ -90,9 +92,37 @@
 - (IBAction)searchButton:(id)sender
 {
     [self getJSONFromFlickr];
+    [self getJSONfromYelp];
 }
 
--(void) getJSONFromFlickr
+-(void) getJSONfromYelp
+{
+    NSString *myYelpURLString = [NSString stringWithFormat:@"http://api.yelp.com/business_review_search?lat=%f&long=%f&radius=10&category=%@&limit=20&ywsid=SHvJpobPrBabhrCyJ8FMag",currentLocation.coordinate.latitude, currentLocation.coordinate.longitude, searchField.text];
+    
+    YKURL *myYelpURL = [YKURL URLString:myYelpURLString];
+    
+    [YKJSONRequest requestWithURL:myYelpURL
+                      finishBlock:^ void (id myData)
+                                     {
+                                         [self setUpYelpVenuesWithData:myData];
+                                     }
+                        failBlock:^ void (YKHTTPError *error)
+                                     {
+                                         if (error) {
+                                             NSLog(@"%@", [error description]);
+                                         }
+                                     }
+                                     ];
+}
+
+-(void) setUpYelpVenuesWithData: (id)data
+{
+    myYelpVenues = (NSDictionary *)data;
+    NSArray* myYelpBusinesses = [myYelpVenues valueForKey:@"businesses"];
+    
+}
+
+-(void) getJSONFromFlickr   
 {
     allPhotoJSONfileArray = [[NSMutableArray alloc] init];
     
@@ -120,7 +150,6 @@
         NSError* jsonError;
         NSDictionary *myJSONDictionary = (NSDictionary *)[NSJSONSerialization JSONObjectWithData:myData options:NSJSONReadingAllowFragments error:&jsonError];
         
-        //entireJSONfile is an Array of "photo"s
         NSArray *arrayOfDictionaryPhotos = [[myJSONDictionary valueForKey:@"photos"] valueForKey:@"photo"];
         
         for (int i=0; i < [arrayOfDictionaryPhotos count]; i++)

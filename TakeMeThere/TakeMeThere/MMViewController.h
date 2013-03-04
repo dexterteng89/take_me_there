@@ -30,4 +30,6 @@
 - (void) takeJSONAndPutIntoArray: (NSURLResponse *)myResponse withData: (NSData *)myData andError: (NSError *)theirError;
 - (void) getJSONFromFlickr;
 
+- (void) getJSONfromYelp;
+-(void) setUpYelpVenuesWithData: (id)data;
 @end

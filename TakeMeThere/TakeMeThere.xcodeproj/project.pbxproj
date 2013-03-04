@@ -8,12 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		1D18DA9116DC38CB000D3F8F /* QueryListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D18DA9016DC38CB000D3F8F /* QueryListTableViewController.m */; };
+		1D92CBB416E5527F00B1FF9F /* libYelpKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D92CBAF16E5525B00B1FF9F /* libYelpKit.a */; };
 		D8835AFA16DDBA16009897C3 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8835AF916DDBA16009897C3 /* MapViewController.m */; };
 		D8835B0616DEBAD7009897C3 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8835B0516DEBAD7009897C3 /* MapKit.framework */; };
 		D8835B0816DEBADD009897C3 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8835B0716DEBADD009897C3 /* CoreLocation.framework */; };
 		D8835B0B16DEC08D009897C3 /* Annotation.m in Sources */ = {isa = PBXBuildFile; fileRef = D8835B0A16DEC08D009897C3 /* Annotation.m */; };
 		D8E21FA616E51516000F1E93 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8E21FA516E51516000F1E93 /* QuartzCore.framework */; };
-		D8E21FA716E5151C000F1E93 /* libYelpKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D8E21FA016E514BE000F1E93 /* libYelpKit.a */; };
 		D8E21FAA16E5156A000F1E93 /* MMYelpKitFramework.m in Sources */ = {isa = PBXBuildFile; fileRef = D8E21FA916E5156A000F1E93 /* MMYelpKitFramework.m */; };
 		D8F1407A16DC2EE3004F29A8 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8F1407916DC2EE3004F29A8 /* UIKit.framework */; };
 		D8F1407C16DC2EE3004F29A8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8F1407B16DC2EE3004F29A8 /* Foundation.framework */; };
@@ -30,23 +30,23 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		D8E21F9F16E514BE000F1E93 /* PBXContainerItemProxy */ = {
+		1D92CBAE16E5525B00B1FF9F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = D8E21F9916E514BD000F1E93 /* YelpKit.xcodeproj */;
+			containerPortal = 1D92CBA816E5525B00B1FF9F /* YelpKit.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 005592E8140B0085001E9C43;
 			remoteInfo = YelpKit;
 		};
-		D8E21FA116E514BE000F1E93 /* PBXContainerItemProxy */ = {
+		1D92CBB016E5525B00B1FF9F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = D8E21F9916E514BD000F1E93 /* YelpKit.xcodeproj */;
+			containerPortal = 1D92CBA816E5525B00B1FF9F /* YelpKit.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 00DB563915BE198600E247FA;
 			remoteInfo = YelpKitCatalog;
 		};
-		D8E21FA316E5150D000F1E93 /* PBXContainerItemProxy */ = {
+		1D92CBB216E5527800B1FF9F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = D8E21F9916E514BD000F1E93 /* YelpKit.xcodeproj */;
+			containerPortal = 1D92CBA816E5525B00B1FF9F /* YelpKit.xcodeproj */;
 			proxyType = 1;
 			remoteGlobalIDString = 005592E7140B0085001E9C43;
 			remoteInfo = YelpKit;
@@ -56,6 +56,7 @@
 /* Begin PBXFileReference section */
 		1D18DA8F16DC38CB000D3F8F /* QueryListTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QueryListTableViewController.h; sourceTree = "<group>"; };
 		1D18DA9016DC38CB000D3F8F /* QueryListTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QueryListTableViewController.m; sourceTree = "<group>"; };
+		1D92CBA816E5525B00B1FF9F /* YelpKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = YelpKit.xcodeproj; path = ../YelpKit/YelpKit.xcodeproj; sourceTree = "<group>"; };
 		D8835AF816DDBA16009897C3 /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MapViewController.h; path = ../MapViewController.h; sourceTree = "<group>"; };
 		D8835AF916DDBA16009897C3 /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MapViewController.m; path = ../MapViewController.m; sourceTree = "<group>"; };
 		D8835B0516DEBAD7009897C3 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
@@ -63,7 +64,6 @@
 		D8835B0916DEC08D009897C3 /* Annotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Annotation.h; sourceTree = "<group>"; };
 		D8835B0A16DEC08D009897C3 /* Annotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Annotation.m; sourceTree = "<group>"; };
 		D8835B0D16DFD094009897C3 /* CurrentLocationDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CurrentLocationDelegate.h; sourceTree = "<group>"; };
-		D8E21F9916E514BD000F1E93 /* YelpKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = YelpKit.xcodeproj; path = ../YelpKit/YelpKit.xcodeproj; sourceTree = "<group>"; };
 		D8E21FA516E51516000F1E93 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		D8E21FA816E5156A000F1E93 /* MMYelpKitFramework.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MMYelpKitFramework.h; path = ../MMYelpKitFramework.h; sourceTree = "<group>"; };
 		D8E21FA916E5156A000F1E93 /* MMYelpKitFramework.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MMYelpKitFramework.m; path = ../MMYelpKitFramework.m; sourceTree = "<group>"; };
@@ -92,7 +92,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D8E21FA716E5151C000F1E93 /* libYelpKit.a in Frameworks */,
+				1D92CBB416E5527F00B1FF9F /* libYelpKit.a in Frameworks */,
 				D8E21FA616E51516000F1E93 /* QuartzCore.framework in Frameworks */,
 				D8835B0816DEBADD009897C3 /* CoreLocation.framework in Frameworks */,
 				D8835B0616DEBAD7009897C3 /* MapKit.framework in Frameworks */,
@@ -105,11 +105,11 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		D8E21F9A16E514BD000F1E93 /* Products */ = {
+		1D92CBA916E5525B00B1FF9F /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				D8E21FA016E514BE000F1E93 /* libYelpKit.a */,
-				D8E21FA216E514BE000F1E93 /* YelpKitCatalog.app */,
+				1D92CBAF16E5525B00B1FF9F /* libYelpKit.a */,
+				1D92CBB116E5525B00B1FF9F /* YelpKitCatalog.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -117,10 +117,10 @@
 		D8F1406D16DC2EE3004F29A8 = {
 			isa = PBXGroup;
 			children = (
-				D8E21F9916E514BD000F1E93 /* YelpKit.xcodeproj */,
 				D8F1407F16DC2EE3004F29A8 /* TakeMeThere */,
 				D8F1407816DC2EE3004F29A8 /* Frameworks */,
 				D8F1407716DC2EE3004F29A8 /* Products */,
+				1D92CBA816E5525B00B1FF9F /* YelpKit.xcodeproj */,
 			);
 			sourceTree = "<group>";
 		};
@@ -197,7 +197,7 @@
 			buildRules = (
 			);
 			dependencies = (
-				D8E21FA416E5150D000F1E93 /* PBXTargetDependency */,
+				1D92CBB316E5527800B1FF9F /* PBXTargetDependency */,
 			);
 			name = TakeMeThere;
 			productName = TakeMeThere;
@@ -226,8 +226,8 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = D8E21F9A16E514BD000F1E93 /* Products */;
-					ProjectRef = D8E21F9916E514BD000F1E93 /* YelpKit.xcodeproj */;
+					ProductGroup = 1D92CBA916E5525B00B1FF9F /* Products */;
+					ProjectRef = 1D92CBA816E5525B00B1FF9F /* YelpKit.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -238,18 +238,18 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		D8E21FA016E514BE000F1E93 /* libYelpKit.a */ = {
+		1D92CBAF16E5525B00B1FF9F /* libYelpKit.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
 			path = libYelpKit.a;
-			remoteRef = D8E21F9F16E514BE000F1E93 /* PBXContainerItemProxy */;
+			remoteRef = 1D92CBAE16E5525B00B1FF9F /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		D8E21FA216E514BE000F1E93 /* YelpKitCatalog.app */ = {
+		1D92CBB116E5525B00B1FF9F /* YelpKitCatalog.app */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.application;
 			path = YelpKitCatalog.app;
-			remoteRef = D8E21FA116E514BE000F1E93 /* PBXContainerItemProxy */;
+			remoteRef = 1D92CBB016E5525B00B1FF9F /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -288,10 +288,10 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		D8E21FA416E5150D000F1E93 /* PBXTargetDependency */ = {
+		1D92CBB316E5527800B1FF9F /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = YelpKit;
-			targetProxy = D8E21FA316E5150D000F1E93 /* PBXContainerItemProxy */;
+			targetProxy = 1D92CBB216E5527800B1FF9F /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
